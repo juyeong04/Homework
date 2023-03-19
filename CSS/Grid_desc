@@ -1,0 +1,35 @@
+* 부모요소에게 설정해주기
+    - display : grid
+    - grid-template-columns : '세로'로 몇칸 만들건지 설정
+        • grid-template-columns: 100px 100px 100px  ==> 100px 크기 칸 3줄 만듦
+                                repeat(3, 20%)  ==> px 단위는 크기 고정이라서 반응형 안됨 / % 쓰거나 fr 쓰기!
+                                repeat(3, 1fr)
+        • grid-template-rows : '가로'로 몇칸 만들건지 설정
+        • grid-auto-rows: 가로로 몇칸 만들지는 모르겠을때, 자동으로 세로 칸 지정해주고 남은 만큼 지정해줌!
+            grid-auto-rows: minmax(150px, auto)  ==> 그냥 크기 150px 주면 칸 크기 고정돼서 긴 글이 안에 있으면 글이 짤림
+                                                    minmax()로 150px 이하로는 크기 줄지 않고, max는 auto라서 컨텐츠 크기 만큼 늘어남
+        • grid-gap / grid-column-gap, grid-row-gap : 칸 사이 여백 주기
+
+
+* 칸 차지하기(칸 차지할 해당 요소에 값 설정해주기)
+    - grid-column-start / grid-column-end : 어디 줄부터 칸 차지할건지 start, end 정해주기
+                                            처음 줄부터 1, 2, 3, 4... / 끝 줄부터 반대로는 -1, -2, -3...
+    - grid-column 2 / 4 : start, end 두줄씩 지정해주기 귀찮으니까 두번째~ 네번째 줄 차지 = 2 / 4 로 표시
+                2 / span 2 : 두번째 줄부터 시작해서 두칸 차지할거임
+    
+    - row도 마찬가지!!
+
+
+* grid-area(부모요소에 지정)
+    start, end 안 써고 칸 차지할 수 있음
+    column, row 지정해준 후 (column 3줄, row auto)
+    grid-area {
+        'a a a'
+        'b b'
+        'c c'
+    }
+    .item1 {
+        grid-area: a;
+        }
+    
+    이런 식으로 지정해주면 됨!
