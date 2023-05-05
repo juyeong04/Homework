@@ -7,14 +7,13 @@
     <title>로그인</title>
 </head>
 <body>
-    <form action="" method="post"> <!-- Todo : action 어디로 보낼지 -->
-        <label for="u_id">아이디</label>
-        <input type="text" name="login_id" value="" id="u_id"> <!-- Todo : value값 -->
-        <label for="u_pass">비밀번호</label>
-        <input type="text" name="login_password" value="" id="u_pass"> <!-- Todo : value값 -->
+    <form action="login_check.php" method="post">
+        <input type="text" name="login_id" id="u_id" required placeholder="아이디"> 
+        <input type="text" name="login_password"  id="u_pass" required placeholder="비밀번호"> 
+        <button type="submit">로그인</button>
     </form>
-    <button type="submit">로그인</button>
-    <a href="">아이디 찾기</a> <!-- Todo : 링크이동 -->
-    <a href="">비밀번호 찾기</a> <!-- Todo : 링크이동 -->
+    <button type="button" onclick="location.href='find_id.php'">아이디 찾기</button>
+    <button type="button" onclick="location.href='find_pass.php'">비밀번호 찾기</button>
+
 </body>
 </html>
